@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Landing page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+	<style>
+		*{
+			font-family: 'Amaranth', sans-serif;
+			background-color: #edd7f2
+			
+
+		}
+		.heading{
+			text-align: center;
+			padding-top:50px;
+			margin-top: 100px;
+			font-family: 'Fredericka the Great', cursive;
+			font-size: 80px;
+		}
+
+		.middle{
+			
+			display: flex;
+			margin-top: 200px;
+		}
+
+		.form{
+			padding-top:50px;
+			margin-left:150px;
+			height: 200px;
+			width: 500px;
+			text-align: center;
+			background-color: #c1c1c1;
+			border-radius:10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="top">
+		<h1 class="heading">Welcome</h1>
+			<div class="middle">
+			<div class="form">
+				<h3>Existing users please login</h3>
+				<form action='/sign_in'>
+					<input name="button" type="submit" value="Signin" class="btn btn-secondary btn-lg">
+				</form>
+			</div>
+			<div class="form">
+				<h3>New users please Resister</h3>
+				<form action='/sign_up'>
+					<input name="button" type="submit" value="Register" class="btn btn-secondary btn-lg">
+				</form>
+			</div>
+		</div>
+
+		</form>
+	</div>
+
+
+</body>
+</html>
+
+

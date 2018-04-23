@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Wall</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
+
+	<style>
+		body{
+			background-color: #d3c3ee;
+		}
+		.header{
+			background-color:#935bee;
+			color:white;
+			display: flex;
+			height:80px;
+
+		}
+		a{
+			color:black;
+			margin-left:60%;
+			margin-top:3%;
+
+		}
+		h2{
+			margin-left: 5%;
+			margin-top:2%;
+			font-family: 'Bubblegum Sans', cursive;
+		}
+		.main{
+			margin: 30px;
+			width:50%;
+
+		}
+		span{
+			color: #935bee;
+		}
+	</style>
+</head>
+<body>
+		<div class="header">
+			
+			<h2>Welcome</h2>
+			
+			<a href="/logoff">Log off</a>
+
+		</div>
+		<div class="main">
+			<form action="/wall/post" method="post">
+				<p>Post a message</p>
+				<div  class="form-group">
+					<textarea name="post" class="form-control" ></textarea><br>
+				</div>
+				<input type="submit" value="Post a message">	
+
+				</form>
+			<table>
+			{%for message in messages%}
+			
+			<tr>
+				<td>
+					<div>
+						<h4>{{message.first_name}} {{message.last_name}} -{{message.created_at.strftime('%B')}} {{message.created_at.day}} {{message.created_at.year}}</h4>
+						<p><span>Message:</span> {{message['message']}}</p>
+
+						{%for comment in comments%}
+				 			{%if comment.message_id==message.id%}
+					
+					<div>
+						<h4>{{comment.first_name}} {{comment.last_name}} - {{comment.created_at.strftime('%B')}} {{comment.created_at.day}} {{comment.created_at.year}}</h4>
+						<p><span>Comment:</span> {{comment.comment}}</p>
+					</div>
+				 			{%endif%}
+				 			{%endfor%}
+					</div>
+					
+					<form action="/wall/post/{{message.id}}/delete" method="post">
+							<input type="submit" value="Delete Post">
+					</form>
+				
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<form action="/wall/post/{{message.id}}/comment" method="post">
+					<div  class="form-group">
+					<textarea name="comment" class="form-control" ></textarea><br>
+					</div>
+						<input type="submit" value="Post a Comment">	
+					</form>
+				</td>
+			</tr>
+				
+				{%endfor%}
+
+			</table>
+		</div>
+			
+		
+		
+	
+</body>
+</html>
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registration form</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<style>
+			.col-md-4{
+				padding-left:10%;
+				} 
+			.main{
+				margin-top:5%;
+				margin-left: 30%;
+			}
+			h1{
+				margin-left: 20%;
+				margin-bottom:30px; 
+			}
+			
+		
+		</style>
+	</head>
+		<body>
+			<div class="main">
+				<h1>Register</h1>
+				<div class="col-md-4 col-md-offset-4">
+					<form action="/register" method="post">
+						  <div class="form-group">
+						    <input type="text" name="first_name" class="form-control"  placeholder="First Name">
+						  </div>
+						  <div class="form-group">
+						    <input type="text" name="last_name" class="form-control"  placeholder="Last Name">
+						  </div>
+						  <div class="form-group">
+						    <input type="email" name="email" class="form-control"  placeholder="Email">
+						  </div>
+						  <div class="form-group">
+						    <input type="password" name="password" class="form-control"  placeholder="Password">
+						  </div>
+						  <div class="form-group">
+						    <input type="password" name="confirm" class="form-control"  placeholder="Confirm Password">
+						  </div>
+
+						  <button type="submit" class="btn btn-primary">Register</button>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="col-md-4 col-md-offset-4">
+			<form action="/register" method="post">
+				
+						<lable>First Name:</label>
+							<input type="text" name="first_name">
+					
+					</tr>
+					<tr>
+						<td><label>Last Name:</label>
+							<input type="text" name="last_name">
+						</td>
+					</tr>
+					<tr>
+						<td><label>Email:</label>
+							<input type="text" name="email">
+						</td>
+					</tr>
+					<tr>
+						<td><label>Password:</label>
+							<input type="password" name="password">
+						</td>
+					</tr>
+					<tr>
+						<td><label> PW Confrim:</label>
+							<input type="password" name="confirm">
+						</td>
+					</tr>
+					
+				</table>
+				
+				<label>
+					<input type="submit" value="Register">
+				</label>
+			</form> -->
+						{% with messages = get_flashed_messages() %}
+							{% if messages %}
+				
+								{% for message in messages %}
+									<ul>
+										<li>{{message}}</li>
+									</ul>
+								{% endfor %}
+				
+							{% endif %}
+						{% endwith %}	
+					
+		</body>
+
+</html>
